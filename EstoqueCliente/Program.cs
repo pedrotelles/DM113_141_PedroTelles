@@ -13,17 +13,17 @@ namespace EstoqueCliente
         {
             Console.WriteLine("Press ENTER when the service has started");
             Console.ReadLine();
-            ServicoEstoqueClient proxy = new ServicoEstoqueClient();
+            ServicoEstoqueClient proxy = new ServicoEstoqueClient("BasicHttpBinding_IServicoEstoque");
             //Adicionar Produto 11
             Console.WriteLine("Teste 1: Adicionar produto 11");
             Console.WriteLine();
 
             Produto Produto = new Produto
             {
-                NumeroProduto = "13000",
-                NomeProduto = "Produto 13",
+                NumeroProduto = "11000",
+                NomeProduto = "Produto 11",
                 EstoqueProduto = 220,
-                DescricaoProduto = "Esse é o produto 13"
+                DescricaoProduto = "Esse é o produto 11"
             };
 
             if (proxy.IncluirProduto(Produto) == true)
@@ -79,9 +79,9 @@ namespace EstoqueCliente
             Console.WriteLine();
 
             Console.WriteLine("Teste 8: Remover 20 unidades do produto 1:");
-            if (proxy.RemoverEstoque("1000", 10))
+            if (proxy.RemoverEstoque("1000", 20))
             {
-                Console.WriteLine("Removido 10 itens no estoque do Produto 1");
+                Console.WriteLine("Removido 20 itens no estoque do Produto 1");
             }
             Console.WriteLine();
 
